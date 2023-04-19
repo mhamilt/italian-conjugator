@@ -1,0 +1,138 @@
+{
+  "are": {
+    "gerund" : "ando",
+    "present": {
+      "io": "o",
+      "tu": "i",
+      "lei": "a",
+      "noi": "iamo",
+      "voi": "ate",
+      "loro": "ano"
+    },
+    "imperfetto": {
+      "io": "avo",
+      "tu": "avi",
+      "lei": "ava",
+      "noi": "avamo",
+      "voi": "avate",
+      "loro": "avano"
+    },
+    "remoto": {
+      "io": "ai",
+      "tu": "asti",
+      "lei": "ò",
+      "noi": "ammo",
+      "voi": "aste",
+      "loro": "arono"
+    },
+    "futuro": {
+      "io": "erò",
+      "tu": "erai",
+      "lei": "erà",
+      "noi": "eremo",
+      "voi": "erete",
+      "loro": "eranno"
+    },
+    "condizionale": {
+      "io": "erei",
+      "tu": "eresti",
+      "lei": "erebbe",
+      "noi": "eremmo",
+      "voi": "ereste",
+      "loro": "erebbero"
+    }
+  },
+  "ere": {
+    "gerund" : "endo",
+    "present": {
+      "io": "o",
+      "tu": "i",
+      "lei": "e",
+      "noi": "iamo",
+      "voi": "ete",
+      "loro": "ono"
+    },
+    "imperfetto": {
+      "io": "evo",
+      "tu": "evi",
+      "lei": "eva",
+      "noi": "evamo",
+      "voi": "evate",
+      "loro": "evano"
+    },
+    "remoto": {
+      "io": "ei",
+      "tu": "esti",
+      "lei": "è",
+      "noi": "emmo",
+      "voi": "este",
+      "loro": "erono"
+    },
+    "futuro": {
+      "io": "erò",
+      "tu": "erai",
+      "lei": "erà",
+      "noi": "eremo",
+      "voi": "erete",
+      "loro": "eranno"
+    },
+    "condizionale": {
+      "io": "erei",
+      "tu": "eresti",
+      "lei": "erebbe",
+      "noi": "eremmo",
+      "voi": "ereste",
+      "loro": "erebbero"
+    }
+  },
+  "ire": {
+    "gerund" : "endo",
+    "present": [{
+      "io": "o",
+      "tu": "i",
+      "lei": "e",
+      "noi": "iamo",
+      "voi": "ite",
+      "loro": "ono"
+    }, {
+      "io": "isco",
+      "tu": "isci",
+      "lei": "isce",
+      "noi": "iamo",
+      "voi": "ite",
+      "loro": "iscono"
+    }],
+    "imperfetto": {
+      "io": "ivo",
+      "tu": "ivi",
+      "lei": "iva",
+      "noi": "ivamo",
+      "voi": "ivate",
+      "loro": "ivano"
+    },
+    "remoto": {
+      "io": "ii",
+      "tu": "isti",
+      "lei": "ì",
+      "noi": "immo",
+      "voi": "iste",
+      "loro": "irono"
+    },
+    "futuro": {
+      "io": "irò",
+      "tu": "irai",
+      "lei": "irà",
+      "noi": "iremmo",
+      "voi": "irete",
+      "loro": "iranno"
+    },
+    "condizionale": {
+      "io": "irei",
+      "tu": "iresti",
+      "lei": "irebbe",
+      "noi": "iremmo",
+      "voi": "ireste",
+      "loro": "irebbero"
+    }
+  }
+}
