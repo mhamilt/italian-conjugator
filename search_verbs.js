@@ -41,7 +41,7 @@ $.getJSON("./verbs.json", function(json) {
     verbsJsonData = json;
     document.getElementById("searchbar").disabled = false
 
-    searchVerbs("essere")
+    searchVerbs(window.location.hash.substr(1))
 });
 
 function searchVerbs(verb) {
@@ -82,3 +82,4 @@ function fillTable(verbData) {
 addEventListener("input", (event) => {
     searchVerbs(event.target.value);
 });
+console.log(window.location.hash.substr(1))
