@@ -7,7 +7,7 @@ html {
 }
 body {
     margin: 0 auto;
-    max-width: 36em;
+    max-width: 40em;
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 50px;
@@ -100,7 +100,7 @@ hr {
     margin: 1em 0;
 }
 table {
-    margin: 1em 0;
+    margin: 0em 0;
     border-collapse: collapse;
     width: 100%;
     overflow-x: auto;
@@ -121,6 +121,10 @@ th {
 }
 td {
     padding: 0.125em 0.5em 0.25em 0.5em;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
 }
 header {
     margin-bottom: 4em;

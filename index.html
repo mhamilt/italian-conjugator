@@ -7,25 +7,28 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
             integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
             crossorigin="anonymous"></script>
+    <script src="./search_verbs.js" defer></script>
     <title>Italian Conjugator</title>
 </head>
 <body>
 <h1>Italian Verb Conjugation</h1>
-<input id="search-bar" type="search">
-<table id="results">
+<input id="searchbar" type="search" disabled>
+<div id="results">
+<p><b>Infinitive:</b><i id="infinitive"></i></p>
+<p><b>Gerund:</b><i id="gerund"></i></p>
+<p><b>Passato:</b><i id="passato"></i></p>
+<table>
     <tr>
-        <td id="person">Person</td>
-        <td id="presente">Presente</td>
-        <td id="passato">Passato</td>
-        <td id="imperfetto">Imperfetto</td>
-        <td id="remoto">Remoto</td>
-        <td id="futuro">Futuro</td>
-        <td id="conguintivo">Conguintivo</td>
-        <td id="condizionale">Condizionale</td>
+        <th id="person">Person</th>
+        <th id="presente">Presente</th>
+        <th id="imperfetto">Imperfetto</th>
+        <th id="remoto">Remoto</th>
+        <th id="futuro">Futuro</th>
+        <th id="conguintivo">Conguintivo</th>
+        <th id="condizionale">Condizionale</th>
     </tr>
     <tr id="io">
         <td>io</td>
-        <td></td>
         <td></td>
         <td></td>
         <td></td>
@@ -41,11 +44,9 @@
         <td></td>
         <td></td>
         <td></td>
-        <td></td>
     </tr>
     <tr id="lei">
         <td>lei/lui</td>
-        <td></td>
         <td></td>
         <td></td>
         <td></td>
@@ -61,11 +62,9 @@
         <td></td>
         <td></td>
         <td></td>
-        <td></td>
     </tr>
     <tr id="voi">
         <td>voi</td>
-        <td></td>
         <td></td>
         <td></td>
         <td></td>
@@ -81,8 +80,8 @@
         <td></td>
         <td></td>
         <td></td>
-        <td></td>
     </tr>
 </table>
+</div>
 </body>
 </html>
