@@ -134,5 +134,48 @@
       "voi": "ireste",
       "loro": "irebbero"
     }
+  },
+  "urre": {
+    "gerund" : "usciendo",
+    "present": {
+      "io": "o",
+      "tu": "i",
+      "lei": "e",
+      "noi": "iamo",
+      "voi": "ete",
+      "loro": "ono"
+    },
+    "imperfetto": {
+      "io": "evo",
+      "tu": "evi",
+      "lei": "eva",
+      "noi": "evamo",
+      "voi": "evate",
+      "loro": "evano"
+    },
+    "remoto": {
+      "io": "ei",
+      "tu": "esti",
+      "lei": "è",
+      "noi": "emmo",
+      "voi": "este",
+      "loro": "erono"
+    },
+    "futuro": {
+      "io": "erò",
+      "tu": "erai",
+      "lei": "erà",
+      "noi": "eremo",
+      "voi": "erete",
+      "loro": "eranno"
+    },
+    "condizionale": {
+      "io": "erei",
+      "tu": "eresti",
+      "lei": "erebbe",
+      "noi": "eremmo",
+      "voi": "ereste",
+      "loro": "erebbero"
+    }
   }
 }
