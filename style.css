@@ -108,12 +108,13 @@ hr {
 }
 table {
     margin: 0em 0;
+    max-width: 50em;
     border-collapse: collapse;
     width: 100%;
     overflow-x: auto;
     display: block;
     font-variant-numeric: lining-nums tabular-nums;
-
+    font-size: 0.85em;
 }
 table caption {
     margin-bottom: 0.75em;
