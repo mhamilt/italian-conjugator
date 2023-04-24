@@ -80,6 +80,6 @@ function fillTable(verbData) {
 }
 
 addEventListener("input", (event) => {
-    searchVerbs(event.target.value);
+    searchVerbs(event.target.value.toLowerCase().replaceAll(" ",''));
 });
 console.log(window.location.hash.substr(1))
