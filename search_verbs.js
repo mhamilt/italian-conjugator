@@ -4,8 +4,10 @@ let verbConjugationCodes = {
     "imperfetto": "IPRF.IND",
     "remoto": "PRET.IND",
     "futuro": "FUT.IND",
-    "conguintivo": "PRS.SBJV",
-    "condizionale": "COND"
+    "congiuntivo": "PRS.SBJV",
+    "congiuntivo-imperfetto": "IPRF.SBJV",
+    "condizionale": "COND",
+    "imperative": "IMP"
 }
 
 let personCodes = {
@@ -22,8 +24,10 @@ let table_header = [
     "imperfetto",
     "remoto",
     "futuro",
-    "conguintivo",
-    "condizionale"
+    "congiuntivo",
+    "congiuntivo-imperfetto",
+    "condizionale",
+    "imperative"
 ];
 
 let table_rows = [
@@ -67,11 +71,19 @@ function getVerbData(verb) {
     return verbsJsonData[verb];
 }
 
+function getConjugation(verbData, tense, person) {
+    let conjugation = verbData[verbConjugationCodes[tense] + '.' + personCodes[person]]
+    if (!conjugation){
+        return '';
+    }
+    return conjugation;
+}
+
 function fillTable(verbData) {
     for (let tense of table_header){
         for (let person of table_rows)
         {
-            getCell(tense, person).innerText = verbData[verbConjugationCodes[tense] + '.' + personCodes[person]];
+            getCell(tense, person).innerText = getConjugation(verbData, tense, person);
         }
     }
     document.getElementById("infinitive").innerText = " " + verbData["INF"];
