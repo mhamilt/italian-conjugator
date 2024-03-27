@@ -41,6 +41,26 @@ let table_rows = [
 
 let verbsJsonData;
 
+if (localStorage.getItem("verbs") === 'undefined' || !localStorage.getItem("verbs")) {
+    $.getJSON("./verbs.json", function (json) {
+        verbsJsonData = json;
+        document.getElementById("searchbar").disabled = false;
+        searchVerbs(window.location.hash.substr(1));
+        try {
+            localStorage.setItem("verbs", LZString.compress(JSON.stringify(verbsJsonData)));
+        }
+        catch (e) {
+            console.log("Local Storage is full, Please empty data");
+        }
+    });
+    console.log('not local');
+}
+else {
+    console.log('local');
+    document.getElementById("searchbar").disabled = false
+    verbsJsonData = JSON.parse(LZString.decompress(localStorage.getItem('verbs')));
+}
+
 $.getJSON("./verbs.json", function(json) {
     verbsJsonData = json;
     document.getElementById("searchbar").disabled = false
