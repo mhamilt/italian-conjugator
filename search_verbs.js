@@ -1,53 +1,36 @@
 let verbConjugationCodes = {
-    "passato": "PST.PTCP.M.SG",
-    "presente": "PRS.IND",
-    "imperfetto": "IPRF.IND",
-    "remoto": "PRET.IND",
-    "futuro": "FUT.IND",
-    "congiuntivo": "PRS.SBJV",
-    "congiuntivo-imperfetto": "IPRF.SBJV",
-    "condizionale": "COND",
-    "imperative": "IMP"
+    "PRS.IND"   : "presente"              ,
+    "IPRF.IND"  : "imperfetto"            ,
+    "PRET.IND"  : "remoto"                ,
+    "FUT.IND"   : "futuro"                ,
+    "PRS.SBJV"  : "congiuntivo"           ,
+    "IPRF.SBJV" : "congiuntivo-imperfetto",
+    "COND"      : "condizionale"          ,
+    "IMP"       : "imperative"            ,
 }
 
 let personCodes = {
-    "io": "1SG",
-    "tu": "2SG",
-    "lei": "3SG",
-    "noi": "1PL",
-    "voi": "2PL",
-    "loro": "3PL"
+    "1SG":"io",
+    "2SG":"tu",
+    "3SG":"lei",
+    "1PL":"noi",
+    "2PL":"voi",
+    "3PL":"loro"
 }
 
-let table_header = [
-    "presente",
-    "imperfetto",
-    "remoto",
-    "futuro",
-    "congiuntivo",
-    "congiuntivo-imperfetto",
-    "condizionale",
-    "imperative"
-];
-
-let table_rows = [
-    "io",
-    "tu",
-    "lei",
-    "noi",
-    "voi",
-    "loro"
-];
-
+//-----------------------------------------------------------------------------
+// Loading Data
 let verbsJsonData;
 
-if (localStorage.getItem("verbs") === 'undefined' || !localStorage.getItem("verbs")) {
+const localStorageName = "verbs_italian"
+
+if (localStorage.getItem(localStorageName) === 'undefined' || !localStorage.getItem(localStorageName)) {
     $.getJSON("./verbs.json", function (json) {
         verbsJsonData = json;
         document.getElementById("searchbar").disabled = false;
         searchVerbs(window.location.hash.substr(1));
         try {
-            localStorage.setItem("verbs", LZString.compress(JSON.stringify(verbsJsonData)));
+            localStorage.setItem(localStorageName, LZString.compress(JSON.stringify(verbsJsonData)));
         }
         catch (e) {
             console.log("Local Storage is full, Please empty data");
@@ -58,15 +41,11 @@ if (localStorage.getItem("verbs") === 'undefined' || !localStorage.getItem("verb
 else {
     console.log('local');
     document.getElementById("searchbar").disabled = false
-    verbsJsonData = JSON.parse(LZString.decompress(localStorage.getItem('verbs')));
+    verbsJsonData = JSON.parse(LZString.decompress(localStorage.getItem(localStorageName)));
 }
 
-$.getJSON("./verbs.json", function(json) {
-    verbsJsonData = json;
-    document.getElementById("searchbar").disabled = false
-
-    searchVerbs(window.location.hash.substr(1))
-});
+//-----------------------------------------------------------------------------
+// Searching Data
 
 function searchVerbs(verb) {
     let verbdata = getVerbData(verb)
@@ -77,11 +56,16 @@ function searchVerbs(verb) {
     }
 }
 
-function getCell(column_id, row_id) {
-    let column_element = $('#' + column_id).index();
+//-----------------------------------------------------------------------------
+
+function getCell(column_id, row_id) {    
+    let column_element = $('#' + column_id.replace('.', '\\.')).index();
     let row_element = $('#' + row_id);
+
     return row_element.find('td').eq(column_element)[0];
 }
+
+//-----------------------------------------------------------------------------
 
 function getVerbData(verb) {
     if (typeof verbsJsonData === 'undefined' ||
@@ -91,25 +75,29 @@ function getVerbData(verb) {
     return verbsJsonData[verb];
 }
 
-function getConjugation(verbData, tense, person) {
-    let conjugation = verbData[verbConjugationCodes[tense] + '.' + personCodes[person]]
-    if (!conjugation){
-        return '';
-    }
-    return conjugation;
+//-----------------------------------------------------------------------------
+
+function getConjugation(verbData, tense, person) {    
+    let conjugation = verbData[tense + '.' + person]    
+    return ((!conjugation) ? '' : conjugation);
 }
 
+//-----------------------------------------------------------------------------
+
 function fillTable(verbData) {
-    for (let tense of table_header){
-        for (let person of table_rows)
-        {
+    for (const tense in verbConjugationCodes) {
+        for (const person in personCodes) {
             getCell(tense, person).innerText = getConjugation(verbData, tense, person);
         }
     }
-    document.getElementById("infinitive").innerText = " " + verbData["INF"];
-    document.getElementById("passato").innerText = " " + verbData["PST.PTCP.M.SG"];
-    document.getElementById("gerund").innerText = " " + verbData["GER"];
+
+    document.getElementById("INF").innerText           = " " + verbData["INF"];
+    document.getElementById("GER").innerText           = " " + verbData["GER"];
+    document.getElementById("PST.PTCP.M.SG").innerText = " " + verbData["PST.PTCP.M.SG"];
 }
+
+//-----------------------------------------------------------------------------
+// Listeners
 
 addEventListener("input", (event) => {
     searchVerbs(event.target.value.toLowerCase().replaceAll(" ",''));
